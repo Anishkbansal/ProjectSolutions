@@ -186,7 +186,8 @@ onAuthStateChanged(auth, (user) => {
       lineNumbers: true,
       mode: 'javascript', // Adjust the mode according to the solution's language
       readOnly: true,
-      theme: 'material-darker'});
+      theme: 'material-darker',
+      lineWrapping: true});
 
     const urlParams = new URLSearchParams(window.location.search);
     const courseId = urlParams.get('course');
@@ -218,7 +219,7 @@ onAuthStateChanged(auth, (user) => {
           <div class="comment-body">
             <span class="username">${comments[commentId].username}</span>
             <span class="timestamp">${new Date(comments[commentId].timestamp).toLocaleString()}</span>
-            <div class="comment-text-container">
+            <div class="comment-text-container"> 
               <pre class="text" id="text">${comments[commentId].code}</pre>
               <pre class="turncate-text" id="turncate-text">${truncateText(comments[commentId].code)}</pre>
             </div>
@@ -226,9 +227,9 @@ onAuthStateChanged(auth, (user) => {
             <span class="copy-button" onclick="copyComment('${commentId}')">Copy</span>
             <div class="three-dots" onclick="toggleDropdown('${commentId}')">⋮</div>
             <div class="dropdown">
-              ${comments[commentId].user === user.uid ? `<button onclick="editComment('${commentId}')">Edit</button>` : ``}
-              ${comments[commentId].user === user.uid ? `<button onclick="deleteComment('${commentId}')">Delete</button>`:''}
-              <button class="word-wrap" onclick="ToggleWordWrap('${commentId}')">Word Wrap Disabled</button>
+              ${comments[commentId].user === user.uid ? `<button onclick="editComment('${commentId}')" class="dropdownBtn">Edit</button>` : ``}
+              ${comments[commentId].user === user.uid ? `<button onclick="deleteComment('${commentId}')" class="dropdownBtn">Delete</button>`:''}
+              <button class="word-wrap dropdownBtn" onclick="ToggleWordWrap('${commentId}')">enable Word Wrap</button>
             </div>
           </div>
         `;
@@ -406,3 +407,4 @@ function showToast(message) {
     document.body.removeChild(toast);
   }, 3000);
 }
+

@@ -1,14 +1,94 @@
-/* Comment styles */
+/*solution styles */
+.solutionBody{
+  display: flex;
+  align-items: center;
+  background-image: url("../Images/coursesHeadingBG.png");
+  animation: BGAnimation 60s linear infinite;
+  background-size: 160vh;
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+}
+
+.solutionBody::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* Adjust the darkness with the alpha value */
+  z-index: -1; /* Place it behind the content */
+}
+
+
+.solHeading{
+  text-align: center;
+  font-size: 2.5vw;
+  color: #ccc;
+}
+
+.Solution{
+  width: 75vw;
+  height: 75vh;
+  margin: 5px auto 10vh auto;
+}
+
+/* Button styles */
+.dark-btn {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dark-btn:hover {
+  background-color: #333;
+}
+
+/*submit comment*/
+.subHeading{
+  text-align: center;
+  color: #ccc;
+}
+
+.comment-textarea{
+  width: 99%;
+  height: 40vh;
+  padding: 1%;
+  resize: none;
+  font-size: 1vw;
+  color: #ccc;
+  background-color: #444;
+  border-radius: 10px;
+}
+
+.submitCommentDiv{
+  margin-bottom: 10vh;
+}
+
+/*comment styles*/
+
+.comments-section{
+  background-color: rgba(43, 45, 54);
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 .comment {
   display: flex;
-  align-items: flex-start;
   margin-bottom: 20px;
   position: relative;
 }
 
 .profile-pic {
-  width: 50px;
-  height: 50px;
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -19,6 +99,7 @@
 
 .username {
   font-weight: bold;
+  color: #ccc;
 }
 
 .timestamp {
@@ -27,12 +108,14 @@
 }
 
 .read-more {
-  color: blue;
+  color: rgb(165, 165, 165);
+  text-decoration: underline;
   cursor: pointer;
 }
 
 .copy-button {
-  color: blue;
+  color: rgb(165, 165, 165);
+  text-decoration: underline;
   cursor: pointer;
   margin-left: 10px;
 }
@@ -41,23 +124,41 @@
   cursor: pointer;
   position: absolute;
   top: 5px;
-  right: 35px;
+  right: 5px;
+  color: #ccc;
 }
 
 .dropdown {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 5px;
-  background: white;
+  background: #333;
   border: 1px solid gray;
-  padding: 5px;
+  padding: 5px 0px;
   z-index: 1;
+  width: max-content;
+  border-radius: 5px;
 }
 
 .comment.show-dropdown .dropdown {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
+
+.dropdownBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 10px 10px;
+  font-size: 1vw;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.dropdownBtn:hover{
+  background-color: #555;
+}
+
 
 .toast {
   position: fixed;
@@ -84,14 +185,39 @@
 }
 
 .comment-text-container{
-  width: 60vw;
+  max-height: 90vh;
   overflow-x: auto;
+  background-color: rgba(14, 25, 41, 0.507);
+  color: #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0px 10px 0px;
 }
 
 .CodeMirror {
   border: 1px solid #ddd;
-  height: auto;
-  max-height: 300px;
-  margin-bottom: 20px;
-  font-size: 14px;
+  height: 100%;
+  font-size: 1vw;
+}
+
+/* Card styles for desktop */
+@media (min-width: 768px) {
+
+}
+
+/* List styles for mobile */
+@media (max-width: 767px) {
+  .solHeading{
+    font-size: 4vw;
+  }
+  .CodeMirror{
+    font-size: 2vw;
+  }
+  .comment-textarea{
+    font-size: 2vw;
+  }
+  .profile-pic{
+    width: 8vw;
+    height: 8vw;
+  }
 }
