@@ -24,6 +24,10 @@ module.exports = {
       template: './src/solution.html',
       filename: 'solution.html',
     }),
+    new HtmlWebpackPlugin({
+      template: './src/profile.html',
+      filename: 'profile.html',
+    }),
   ],
   module: {
     rules: [
